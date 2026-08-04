@@ -1,0 +1,132 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b1a30;
+        }
+
+        /* --- Header & Navigation Bar --- */
+        header {
+            background-color: #0b1a30; /* Dark Blue */
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        /* --- Logo --- */
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f39c12; /* Gold Accent */
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- Navigation Links --- */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            position: relative;
+            padding: 0.25rem 0;
+            transition: color 0.3s ease;
+        }
+
+        /* Animated Hover Underline */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #f39c12;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #f39c12;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* --- Action Button --- */
+        .nav-btn {
+            background-color: #f39c12;
+            color: #0b1a30;
+            padding: 0.6rem 1.4rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #e67e22;
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+        }
+
+        /* --- Responsive Styles (Mobile View) --- */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+            }
+
+            .nav-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+.text{
+    text-align: center;
+    color: #ffffff;
+    font-size: 30px;
+    border: 2px #e67e22 solid;
+    border-radius: 20px;
+}
+.text0{
+    text-align: center;
+    color: orange;
+    font-size: 50px;
+    text-decoration: underline;
+    text-decoration-color: #b95804;
+    text-decoration-thickness: 5px;
+    text-underline-offset: 10px;
+    text-shadow: 3px 3px 5px #ebbf0f;
+}

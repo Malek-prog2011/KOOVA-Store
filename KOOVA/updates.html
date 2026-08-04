@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="image.png" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOOVA | Latest Updates</title>
+    <style>
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b1a30; /* Signature Dark Blue */
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            padding: 1.5rem 5%;
+            background-color: rgba(11, 26, 48, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #f39c12; /* Signature Gold */
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #f39c12;
+        }
+
+        /* --- Page Header Banner --- */
+        .hero-banner {
+            text-align: center;
+            padding: 3.5rem 1.5rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-banner h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #f39c12;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-banner p {
+            color: #d1d5db;
+            font-size: 1.1rem;
+        }
+
+        /* --- Updates Container --- */
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        .updates-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* --- Update Card --- */
+        .update-card {
+            background-color: #122540;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(243, 156, 18, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .update-card:hover {
+            transform: translateY(-3px);
+            border-color: #f39c12;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: rgba(243, 156, 18, 0.15);
+            color: #f39c12;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(243, 156, 18, 0.3);
+        }
+
+        .date {
+            color: #a0aec0;
+            font-size: 0.85rem;
+        }
+
+        .update-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .update-body {
+            color: #d1d5db;
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        /* --- Newsletter Subscription Section --- */
+        .newsletter-box {
+            background: linear-gradient(135deg, #122540 0%, #0b1a30 100%);
+            border: 2px solid #f39c12;
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .newsletter-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .newsletter-box p {
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 0.8rem 1rem;
+            background-color: #0b1a30;
+            border: 1px solid rgba(243, 156, 18, 0.3);
+            border-radius: 25px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .newsletter-form input:focus {
+            border-color: #f39c12;
+        }
+
+        .btn-subscribe {
+            background-color: #f39c12;
+            color: #0b1a30;
+            font-weight: 700;
+            padding: 0.8rem 1.8rem;
+            border-radius: 25px;
+            border: 2px solid #f39c12;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-subscribe:hover {
+            background-color: transparent;
+            color: #f39c12;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: #718096;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 4rem;
+        }
+
+        /* --- Responsive View --- */
+        @media (max-width: 600px) {
+            .hero-banner h1 {
+                font-size: 2.2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .btn-subscribe {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="home.html" class="logo">KOOVA</a>
+            <ul class="nav-links">
+                <!-- <li><a href="home.html">Home</a></li> -->
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="updates.html" class="active">Updates</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section class="hero-banner">
+        <h1>Latest Updates</h1>
+        <p>Stay informed with the newest releases, features, and store announcements.</p>
+    </section>
+
+    <!-- Main Updates Content -->
+    <main class="container">
+        <div class="updates-feed">
+
+            <!-- Update 1
+            <article class="update-card">
+                <div class="card-header">
+                    <span class="tag">New Collection</span>
+                    <span class="date">August 2026</span>
+                </div>
+                <h2 class="update-title">Summer Accessory Collection Launched</h2>
+                <p class="update-body">
+                    We have officially released our late summer minimalist collection! Check out our new line of watches, leather goods, and premium accessories directly on the shop page.
+                </p>
+            </article> -->
+
+                <!-- Update 2 
+            <article class="update-card">
+                <div class="card-header">
+                    <span class="tag">Feature Update</span>
+                    <span class="date">July 2026</span>
+                </div>
+                <h2 class="update-title">Improved Store Checkout Experience</h2>
+                <p class="update-body">
+                    We’ve revamped our cart system and checkout page for faster processing and enhanced security on all orders.
+                </p>
+            </article> -->
+
+
+            <article class="update-card">
+                <div class="card-header">
+                    <span class="tag">Announcement</span>
+                    <span class="date">Tuesday, August 4 2026</span>
+                </div>
+                <h2 class="update-title">Welcome to KOOVA!</h2>
+                <p class="update-body">
+                    Update 1: KOOVA is now live! Explore our store for the latest products and exclusive deals.
+                    We are committed to providing you with a seamless shopping experience, and don't worry the shop is coming very soon.
+                </p>
+            </article>
+
+        </div>
+
+        <!-- Newsletter Signup Section
+        <div class="newsletter-box">
+            <h2>Never Miss an Update</h2>
+            <p>Subscribe to our newsletter to receive news, exclusive deals, and product launches directly in your inbox.</p>
+            <form class="newsletter-form" action="#" method="POST">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn-subscribe">Subscribe</button>
+            </form>
+        </div> -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 KOOVA. All rights reserved.
+    </footer>
+
+</body>
+</html>

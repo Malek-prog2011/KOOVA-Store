@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="image.png" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOOVA | About Us</title>
+    <style>
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b1a30; /* Signature Dark Blue */
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            padding: 1.5rem 5%;
+            background-color: rgba(11, 26, 48, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #f39c12; /* Signature Gold */
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #f39c12;
+        }
+
+        /* --- Page Header Banner --- */
+        .hero-banner {
+            text-align: center;
+            padding: 4rem 1.5rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-banner h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #f39c12;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-banner p {
+            color: #d1d5db;
+            font-size: 1.15rem;
+            line-height: 1.6;
+        }
+
+        /* --- Main Content Section --- */
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        .story-section {
+            background-color: #122540;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid rgba(243, 156, 18, 0.2);
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .story-section h2 {
+            font-size: 1.8rem;
+            color: #f39c12;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .story-section p {
+            color: #d1d5db;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+
+        .story-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- Core Values Grid --- */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #f39c12;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .value-card {
+            background-color: #122540;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(243, 156, 18, 0.15);
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: #f39c12;
+        }
+
+        .value-card h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .value-card p {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* --- Call to Action Banner --- */
+        .cta-box {
+            background: linear-gradient(135deg, #122540 0%, #0b1a30 100%);
+            border: 2px solid #f39c12;
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .cta-box p {
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .btn-shop {
+            display: inline-block;
+            background-color: #f39c12;
+            color: #0b1a30;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.9rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid #f39c12;
+        }
+
+        .btn-shop:hover {
+            background-color: transparent;
+            color: #f39c12;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: #718096;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 4rem;
+        }
+
+        /* --- Responsive View --- */
+        @media (max-width: 768px) {
+            .hero-banner h1 {
+                font-size: 2.3rem;
+            }
+
+            .story-section {
+                padding: 1.8rem;
+            }
+
+            .cta-box {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="home.html" class="logo">KOOVA</a>
+            <ul class="nav-links">
+                <!-- <li><a href="home.html">Home</a></li> -->
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="updates.html">Updates</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Title Header -->
+    <section class="hero-banner">
+        <h1>About KOOVA</h1>
+        <p>Redefining quality and style with curated products designed to elevate your everyday lifestyle.</p>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="container">
+
+        <!-- Brand Story Card -->
+        <div class="story-section">
+            <h2>Our Story</h2>
+            <p>
+                Founded with a passion for excellence and innovation, <strong>KOOVA</strong> started as a vision to bridge the gap between premium quality and accessible design. We believe that everyday essentials should be both functional and beautifully crafted.
+            </p>
+            <p>
+                From hand-picked items to carefully tested collections, every product on KOOVA reflects our commitment to top-notch craftsmanship, modern aesthetic, and uncompromised customer satisfaction.
+            </p>
+        </div>
+
+        <!-- Core Values Section -->
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>Quality First</h3>
+                <p>We source and craft items using high-standard materials to ensure long-lasting durability and excellence.</p>
+            </div>
+            <div class="value-card">
+                <h3>Modern Design</h3>
+                <p>Sleek, timeless, and functional designs tailored to fit seamless into contemporary lifestyles.</p>
+            </div>
+            <div class="value-card">
+                <h3>Customer Dedicated</h3>
+                <p>Your experience is our priority. We offer reliable support and fast shipping on all orders.</p>
+            </div>
+        </div>
+        <h2 class="section-title">How to buy in KOOVA ?</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                In KOOVA, We have a special system for buying items, 
+                <br>
+                For each item an ID, You just copy the ID of what you need to buy 
+                <br>
+                and send it to us in contact page  
+                <br>
+                and thank you.
+                </div>
+                </div>
+        <!-- CTA Box -->
+        <div class="cta-box">
+            <h2>Ready to Explore?</h2>
+            <p>Check out our latest products and upgrade your collection today.</p>
+            <a href="shop.html" class="btn-shop">Shop Now</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 KOOVA. All rights reserved.
+    </footer>
+
+</body>
+</html>
